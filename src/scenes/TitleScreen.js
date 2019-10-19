@@ -12,23 +12,24 @@ export default class TitleScreen extends GameScene {
     }
 
     preload() {
-        
+        this.load.bitmapFont(
+            'munro', 
+            'assets/fonts/munro.png', 
+            'assets/fonts/munro.xml'
+        );
     }
 
     create() {
-        this.ctrl = createController(this, config.buttons);
-
-        this.cameras.main.setBackgroundColor('#EDEDED');
-        let title = this.add.text(
+        
+        this.cameras.main.setBackgroundColor('#161616');
+        let title = this.add.bitmapText(
             this.cameras.main.centerX, 
             this.cameras.main.centerY - (this.cameras.main.height / 4), 
+            'munro',
             'Game Title',
-            {
-                color: 'black',
-                fontFamily: 'sans-serif',
-                fontSize: '30px'
-            }
         );
+        
+        this.ctrl = createController(this, config.buttons);
         title.setOrigin(0.5);
 
         this.ctrl.on('confirm', () => {

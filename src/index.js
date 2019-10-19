@@ -8,11 +8,11 @@ const config = {
     type: Phaser.AUTO,
     pixelArt: true,
     parent: 'game',
-    width: 240,
-    height: 240,
-    scale: {
-        mode: Phaser.Scale.FIT,
-    },
+    width: 128,
+    height: 96,
+    // scale: {
+    //     mode: Phaser.Scale.ZOOM_4X,
+    // },
     physics: {
         default: 'arcade',
         arcade: {
