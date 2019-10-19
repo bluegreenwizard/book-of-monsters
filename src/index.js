@@ -1,29 +1,16 @@
 import './styles.sass';
 import Phaser from 'phaser';
+import Vue from 'vue';
+import VueUi from './ui/VueUi';
+import game from './game';
 
-import GamePlay from './scenes/GamePlay'
-import TitleScreen from './scenes/TitleScreen';
-
-const config = {
-    type: Phaser.AUTO,
-    pixelArt: true,
-    parent: 'game',
-    width: 128,
-    height: 96,
-    // scale: {
-    //     mode: Phaser.Scale.ZOOM_4X,
-    // },
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 300 }
-        }
+const app = new Vue({
+    el: '#ui',
+    components: {
+        'vue-ui': VueUi
+    },
+    template: '<vue-ui game="game"></vue-ui>',
+    data: {
+        game
     }
-};
-
-const game = new Phaser.Game(config);
-game.scene.add('TitleScreen', TitleScreen, true);
-game.scene.add('GamePlay', GamePlay);
-// game.events.once(Phaser.Scenes.Events.CREATE, scene => {
-//     scene.cursors = scene.input.keyboard.createCursorKeys();
-// });
+});

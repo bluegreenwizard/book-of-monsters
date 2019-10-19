@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 // const phaser = path.join(__dirname, '/node_modules/phaser/src/phaser.js');
 
@@ -34,6 +35,15 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        css: ['vue-style-loader', 'css-loader', 'sass-loader']
+                    }
+                }
             }
         ]
     },
@@ -63,6 +73,13 @@ module.exports = {
             server: {
                 baseDir: ['./', './dist']
             }
-        })
-    ]
+        }),
+        new VueLoaderPlugin(),
+    ],
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+        },
+        extensions: ['*', '.vue', '.js', '.json'],
+    }
 }
