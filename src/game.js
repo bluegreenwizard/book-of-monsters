@@ -5,8 +5,8 @@ const config = {
     type: Phaser.AUTO,
     pixelArt: true,
     parent: 'game',
-    width: 128,
-    height: 96,
+    width: 192,
+    height: 144,
     // scale: {
     //     mode: Phaser.Scale.ZOOM_4X,
     // },

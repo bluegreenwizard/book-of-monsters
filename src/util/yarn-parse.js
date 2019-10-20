@@ -24,8 +24,12 @@ function parseBody(body) {
     //Parse each option into text and destination;
     const options = optionStrings.map(opt => {
         const splitOption = opt.match(/\[\[(.+)\|(.+)\]\]/);
+        //Remove whitespace from start and end of answers
+        const text = splitOption[1].replace(/^[\s\\n]+|[\s\\n]+$/g, '');
+        //TODO: Above doesn't fix issue
+
         return {
-            text: splitOption[1],
+            text: text,
             destination: splitOption[2]
         }
     });

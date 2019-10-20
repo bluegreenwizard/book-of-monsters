@@ -1,0 +1,67 @@
+{
+    "colors": [
+        "red",
+        "blue",
+        "yellow",
+        "green",
+        "black",
+        "pink",
+        "orange",
+        "purple"
+    ],
+    "armType": [
+        "chubby",
+        "tentacle",
+        "lanky",
+        "none"
+    ],
+    "mouthType": [
+        "biglips",
+        "lipstick",
+        "flat",
+        "grin",
+        "oface",
+        "smirk",
+        "smile",
+        "sad",
+        "mad"
+    ],
+    "bodyType": [
+        "round",
+        "snaky",
+        "head",
+        "blob",
+        "crab",
+        "square",
+        "alien",
+        "cloak"
+    ],
+    "favoriteSnack": [
+        "pancakes",
+        "crackers",
+        "candy",
+        "popcorn",
+        "vegetables",
+        "fruit"
+    ],
+    "weakness": [
+        "friendly",
+        "hungry",
+        "afraid"
+    ],
+    "personality": [
+        "goofy",
+        "country",
+        "stupid",
+        "angry",
+        "sad",
+        "shy",
+        "silly",
+        "playful",
+        "childish",
+        "menacing",
+        "curious",
+        "crazy",
+        "motherly"
+    ]
+}

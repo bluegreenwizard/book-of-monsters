@@ -1,3 +1,6 @@
+$gamewidth: 768px
+$gameheight: 576px
+    
 body
     background-color: #000
 
@@ -5,16 +8,16 @@ canvas
     position: absolute
     top: 0
     left: 0
-    width: 512px
-    height: 384px
+    width: $gamewidth
+    height: $gameheight
 
 #menu
     position: absolute
     top: 0
     left: 0
     border: 1px solid #1f1f1f
-    width: 512px
-    height: 384px
+    width: $gamewidth
+    height: $gameheight
     z-index: 2
     color: #daa520
     a
@@ -23,17 +26,19 @@ canvas
 .container
     position: relative
     padding: 16px 32px
-    height: 352px
+    height: $gameheight - 32px
 
 #modal-grid
     position: relative
-    height: 352px
+    height: $gameheight - 32px
     display: grid
     grid-template-rows: 1fr 1fr 1fr
 
 .modal
+    font-size: 28px
     grid-row-start: 3
     padding: 8px 16px
     background: #000000
     border: 2px solid #daa520
     border-radius: 2px
+    white-space: pre-line
