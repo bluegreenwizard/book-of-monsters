@@ -3,6 +3,7 @@ import Phaser from 'phaser';
 import Vue from 'vue';
 import VueUi from './ui/VueUi';
 import game from './game';
+import './util/monstermaker';
 
 import './util/yarn-parse';
 

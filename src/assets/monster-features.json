@@ -44,10 +44,17 @@
         "vegetables",
         "fruit"
     ],
+    "favoriteToy": [
+        "teddy bear",
+        "toy car",
+        "doll"
+    ],
     "weakness": [
         "friendly",
         "hungry",
-        "afraid"
+        "afraid",
+        "playful",
+        "shy"
     ],
     "personality": [
         "goofy",

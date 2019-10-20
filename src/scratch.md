@@ -17,6 +17,13 @@ Chance of: "What do you want to know?"
     - Teddy Bear
     - Toy Car
 
+# Weaknesses
+- friendly - learn its name
+- hungry - bring its favorite snack
+- afraid - bring something it hates
+- playful - bring its favorite toy
+- shy - 
+
 # Special Monsters
 The Silent
 - Only responds with "...".
