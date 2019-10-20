@@ -52,7 +52,4 @@ async function generateMonster(level, similarity) {
     return monster;
 }
 
-generateMonster(3).then(monster => {
-    console.log(monster);
-    
-});
+export default generateMonster;

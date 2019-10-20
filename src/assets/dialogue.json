@@ -4,8 +4,8 @@
 		"tags": "",
 		"body": "In the land of monsters, every monster is unique..\n<<next>>\nSome have blue eyes, some have red. \nThe red eyed one? His name is Ted.\n<<next>> \nSome have 3 eyes. Sometimes more,\npeeking from your closet door.\n<<next>>\nTest choice here.\n[[Yes|StoryYes1]]  \n[[No|StoryYes2]] ",
 		"position": {
-			"x": -154,
-			"y": 144
+			"x": -98,
+			"y": 209
 		},
 		"colorID": 0
 	},
@@ -14,8 +14,8 @@
 		"tags": "",
 		"body": "Hello and hi hey great to meet you hey hi!",
 		"position": {
-			"x": -168,
-			"y": 433
+			"x": -134,
+			"y": 504
 		},
 		"colorID": 4
 	},
@@ -24,9 +24,19 @@
 		"tags": "",
 		"body": "This is going to run an arbitrary command now.\n<<test>>\n<<next>>\n",
 		"position": {
-			"x": 98,
-			"y": 436
+			"x": 92,
+			"y": 480
 		},
 		"colorID": 1
+	},
+	{
+		"title": "StoryInterlude1",
+		"tags": "",
+		"body": "Have you heard the one about ((name))?\n<<n>>\n((name)) has ((armType)) arms and ((eyeColor)) eyes.\n<<n>>\nOne day, ((name)) was playing in the woods.\n((name)) had a fun time jumping in the leaves.\n<<n>>\nThe leaves, however, did not like being jumped in,\nand they formed into a pile over a big hole.\n<<n>>\n((name)), not seeing the hole, jumped right into that big pile of leaves.\n<<n>>\nAnd he fell and fell and fell.. never to be seen again.",
+		"position": {
+			"x": 352,
+			"y": 156
+		},
+		"colorID": 6
 	}
 ]

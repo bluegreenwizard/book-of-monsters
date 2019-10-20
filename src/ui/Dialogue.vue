@@ -23,16 +23,27 @@ export default {
     },
     methods: {
         goToNode(title) {
+            //Resets content and parses a new node from title.
             this.content = null;
             //Wait 1 cycle to allow previous Modal to be destroyed.
             setTimeout(() => {
-                console.log('Going to:', title)
                 this.content = yarn.getNode(title)
                 .then(node => {
+                    if (this.props.monster) {
+                        node.body = this.setNodeVariables(node, this.props.monster);
+                    }
                     return yarn.getBodyParts(node);
                 });
             }, 0);
-        }
+        },
+        setNodeVariables(node, monster) {
+            node.body = node.body.replace(/\(\(.+?\)\)/g, (str) => {
+                console.log(monster);
+                const feature = str.match(/\(\((.+?)\)\)/)[1];
+                return monster[feature];
+            });
+            return node.body;
+        },
     },
     created() {
         this.goToNode(this.props.nodeTitle);

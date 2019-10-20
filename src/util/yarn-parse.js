@@ -42,7 +42,7 @@ function parseBody(body) {
 
 //Split node text on <<next>> and remove starting and ending whitespace
 function getBodyParts(node) {
-    const parts = node.body.split('<<next>>');
+    const parts = node.body.split('<<n>>');
     return parts.map(part => {
         const partObject = parseBody(part);
         

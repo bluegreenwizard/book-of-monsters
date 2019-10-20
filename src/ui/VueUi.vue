@@ -4,7 +4,7 @@
             <component 
                 v-bind:props="sceneData"
                 :is="ui" 
-                v-on:changeUI="startDialogue('Story')" 
+                v-on:changeUI="startDialogue('StoryInterlude1', monsters[0])"
             />
         </div>
     </div>
@@ -12,6 +12,8 @@
 
 <script>
 import game from '../game';
+import generateMonster from '../util/monstermaker';
+
 import TitleScreen from './TitleScreen';
 import Dialogue from './Dialogue';
 
@@ -23,7 +25,8 @@ export default {
     data() {
         return {
             ui: 'TitleScreen',
-            sceneData: null
+            sceneData: null,
+            monsters: []
         }
     },
     methods: {
@@ -34,12 +37,19 @@ export default {
         changeUI(ui) {
             this.ui = ui;
         },
-        startDialogue(title) {
+        startDialogue(title, monster) {
             this.sceneData = {
-                nodeTitle: title
+                nodeTitle: title,
+                monster: monster
             };
             this.changeUI('Dialogue');
         }
-    }    
+    },
+    created() {
+        generateMonster().then(monster => {
+            console.log(monster);
+            this.monsters.push(monster);
+        });
+    }
 }
 </script>
