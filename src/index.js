@@ -4,6 +4,8 @@ import Vue from 'vue';
 import VueUi from './ui/VueUi';
 import game from './game';
 
+import './util/yarn-parse';
+
 const app = new Vue({
     el: '#ui',
     components: {

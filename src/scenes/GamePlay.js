@@ -11,18 +11,14 @@ export default class GamePlay extends GameScene {
     }
 
     preload() {
-        Walker.preload(this);
+        
     }
 
     create() {
-        this.cameras.main.setBackgroundColor('#EDEDED');
-        this.walker = new Walker({
-            scene: this, 
-            x: 100, y: 50
-        });
+        this.cameras.main.setBackgroundColor('#161616');
     }
 
     update(time, delta) {
-        this.walker.update(time, delta);
+        
     }
 }

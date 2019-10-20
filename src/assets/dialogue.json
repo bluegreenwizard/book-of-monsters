@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Story",
+		"tags": "",
+		"body": "In the land of monsters, every monster is unique..\n<<next>>\nSome have blue eyes, some have red. \nThe red eyed one? His name is Ted.\n<<next>> \nSome have 3 eyes. Sometimes more,\npeeking from your closet door.\n<<next>>\nTest choice here.\n[[Yes|StoryYes1]]  \n[[No|StoryYes2]] ",
+		"position": {
+			"x": -154,
+			"y": 144
+		},
+		"colorID": 0
+	},
+	{
+		"title": "StoryYes1",
+		"tags": "",
+		"body": "Hello and hi hey great to meet you hey hi!",
+		"position": {
+			"x": -168,
+			"y": 433
+		},
+		"colorID": 4
+	},
+	{
+		"title": "StoryYes2",
+		"tags": "",
+		"body": "This is going to run an arbitrary command now.\n<<test>>\n<<next>>\n",
+		"position": {
+			"x": 98,
+			"y": 436
+		},
+		"colorID": 1
+	}
+]
