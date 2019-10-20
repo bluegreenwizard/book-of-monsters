@@ -13,20 +13,52 @@ async function getNode(title) {
     });
 }
 
-//Parse node body into object with text and list of option objects.
+//Split node text on <<n>> and remove starting and ending whitespace
+function getBodyParts(node) {
+    const parts = node.body.split('<<n>>');
+    return parts.map(part => {
+        const partObject = parseBody(part);
+        
+        return partObject;
+    });
+}
+
+//Parse node body into object.
+//Object has dialogue text,
+//triggered commands,
+//and dialogue options.
 function parseBody(body) {
-    //Remove whitespace from start and end of body
+    //Remove whitespace from start and end of body.
     body = body.replace(/^[\s\\n]+|[\s\\n]+$/g, '');
+
     //Text is everything except stuff in option brackets
-    const text = body.replace(/\[\[.+\]\]/g, '');
+    let text = body.replace(/\[\[.+\]\]/g, '');
+    text = text.replace(/\{\{.+\}\}/g, '');
     //Get each option between [[ ]] in node body.
     const optionStrings = body.match(/\[\[.+\]\]/g) || [];
-    //Parse each option into text and destination;
+    //Get each command between {{ }} in node body.
+    let commands = body.match(/\{\{.+\}\}/g) || [];
+
+    //Get command (left side of :), and argument (right side of :) from each command.
+    commands = commands.map(cmd => { 
+        //TODO: Refactor this puppy right here
+        let arg = '';
+        const command = cmd.match(/\{\{(.+):.*\}\}/)[1];
+        if (arg = cmd.match(/:(.+)\}\}/)) {
+            arg = arg[1];
+        }
+        return {
+            command,
+            arg
+        }
+    });
+
+    //Parse each option into text and destination.
     const options = optionStrings.map(opt => {
         const splitOption = opt.match(/\[\[(.+)\|(.+)\]\]/);
-        //Remove whitespace from start and end of answers
+        //Remove whitespace from start and end of answers.
         const text = splitOption[1].replace(/^[\s\\n]+|[\s\\n]+$/g, '');
-        //TODO: Above doesn't fix issue
+        //TODO: Above doesn't fix issue.
 
         return {
             text: text,
@@ -36,18 +68,9 @@ function parseBody(body) {
 
     return {
         text, //String of text content
+        commands, //List of commands
         options //List of option objects: { text, destination }
     }
-}
-
-//Split node text on <<next>> and remove starting and ending whitespace
-function getBodyParts(node) {
-    const parts = node.body.split('<<n>>');
-    return parts.map(part => {
-        const partObject = parseBody(part);
-        
-        return partObject;
-    });
 }
 
 export default {

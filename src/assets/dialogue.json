@@ -2,41 +2,771 @@
 	{
 		"title": "Story",
 		"tags": "",
-		"body": "In the land of monsters, every monster is unique..\n<<next>>\nSome have blue eyes, some have red. \nThe red eyed one? His name is Ted.\n<<next>> \nSome have 3 eyes. Sometimes more,\npeeking from your closet door.\n<<next>>\nTest choice here.\n[[Yes|StoryYes1]]  \n[[No|StoryYes2]] ",
+		"body": "In the land of monsters, every monster is unique..\n<<n>>\nSome have blue eyes, some have red. \nThe red eyed one? His name is Ted.\n<<n>> \nSome have 3 eyes. Sometimes more,\npeeking from your closet door.\n<<n>>\nA monster has a name, a face,\na favorite toy, a favorite place.\n<<n>>\nMonsters are like me and you,\nSometimes nice, but sometimes cruel.\n<<n>>\nDon't be scared and do not worry\nMonsters find YOU very scary.\n<<n>>\nAlright.. \nTime to go to bed. Here's your teddy.\n<<n>>\n[[Night Night|Story1]]\n[[I'm scared..|Story2]]",
 		"position": {
-			"x": -98,
-			"y": 209
+			"x": -7041,
+			"y": 8741
 		},
 		"colorID": 0
 	},
 	{
-		"title": "StoryYes1",
+		"title": "StoryInterlude1",
 		"tags": "",
-		"body": "Hello and hi hey great to meet you hey hi!",
+		"body": "Have you heard the one about ((name))?\n<<n>>\n((name)) has ((armType)) arms and ((eyeColor)) eyes.\n<<n>>\nOne day, <<name>> was playing in the woods.\n((name)) had a fun time jumping in the leaves.\n<<n>>\nThe leaves, however, did not like being jumped in,\nand they formed into a pile over a big hole.\n<<n>>\n((name)), not seeing the hole, jumped right into that big pile of leaves.\n<<n>>\nAnd so ((name)) fell and fell and fell.. never to be seen again.",
 		"position": {
-			"x": -134,
-			"y": 504
+			"x": -6413,
+			"y": 8467
 		},
-		"colorID": 4
+		"colorID": 0
 	},
 	{
-		"title": "StoryYes2",
+		"title": "StoryInterlude2",
 		"tags": "",
-		"body": "This is going to run an arbitrary command now.\n<<test>>\n<<next>>\n",
+		"body": "Let me tell you about the monster named ((name)).\n<<n>> \n((name)) has ((numEyes)) eyes, and fur colored ((furColor)).\n<<n>>\n((name)) was playing with his ((favoriteToy)),\nwhen he dropped it in a well.\n<<n>>\nThe ((favoriteToy)) fell a long long way,\nuntil - splash! - it landed in the water.\n<<n>>\n((name)) lowered a bucket into the well to get it,\nbut what he pulled back up surprised them.\n<<n>>\nThe bucket was filled with...\n<<n>>\nSpaghetti!",
 		"position": {
-			"x": 92,
-			"y": 480
+			"x": -6413,
+			"y": 8677
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node14",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 8887
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node15",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 9097
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful1",
+		"tags": "",
+		"body": "Hey, what's your favorite game?\n[[Monopoly|BanterPlayful1-1]]\n[[Mario|BanterPlayful1-1]]\n[[Soccer|BanterPlayful1-2]]\n[[Basketball|BanterPlayful1-2]]",
+		"position": {
+			"x": -5865,
+			"y": 8567
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful1-1",
+		"tags": "",
+		"body": "Oh! You like to play inside!\n<<n>>\nI usually play with my toys inside the closet..\nI would love to come out and play with you sometime.\n{{i}}",
+		"position": {
+			"x": -5875,
+			"y": 8810
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful1-2",
+		"tags": "",
+		"body": "Oh.. so you like to play outside.\n<<n>>\nI usually just play here inside the closet..\nI'd love to play outside with you sometime.\n{{i}}",
+		"position": {
+			"x": -5803,
+			"y": 8819
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node19",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 9307
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node20",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 9517
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node21",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 9727
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node22",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 9937
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node23",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 10147
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node24",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6413,
+			"y": 10357
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node25",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6183,
+			"y": 8447
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node26",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 8670
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node27",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 8880
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node28",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 9090
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node29",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 10140
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node30",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 10350
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node31",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 9300
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node32",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 9510
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node33",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 9720
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node34",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6177,
+			"y": 9930
+		},
+		"colorID": 0
+	},
+	{
+		"title": "NightIntro",
+		"tags": "",
+		"body": "A monster has visited in the night.\n{{banter}}",
+		"position": {
+			"x": -6657,
+			"y": 8506
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful2",
+		"tags": "",
+		"body": "Have you ever tried to hula hoop?\n[[Yes|BanterPlayful2-1]]\n[[No|BanterPlayful2-2]]",
+		"position": {
+			"x": -5869,
+			"y": 9047
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful2-1",
+		"tags": "",
+		"body": "Wow really?\nI tried to hula Hoop once, but Hoop didn't like it at all..\n{{i}}",
+		"position": {
+			"x": -5872,
+			"y": 9276
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful2-2",
+		"tags": "",
+		"body": "No? Well, I wouldn't recommend it.\n<<n>>\nI tried to hula Hoop once, but Hoop got really mad,\nand ended up hula-ing me instead.\n{{i}}",
+		"position": {
+			"x": -5774,
+			"y": 9272
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful3",
+		"tags": "",
+		"body": "Hey, do you lose a lot of toys?\n[[Yes|BanterPlayful3-1]]\n[[No|BanterPlayful3-2]]",
+		"position": {
+			"x": -5866,
+			"y": 9517
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful3-1",
+		"tags": "",
+		"body": "Good! Lost toys means more toys for me!\n{{i}}",
+		"position": {
+			"x": -5871,
+			"y": 9735
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful3-2",
+		"tags": "",
+		"body": "Oh.. You should lose them more often,\nthat way they'll turn up here in the closet for me.\n{{i}}",
+		"position": {
+			"x": -5763,
+			"y": 9743
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful4",
+		"tags": "",
+		"body": "I just played the BEST BOARDGAME!\n<<n>>\nYou had these spinning gear things,\nand you put your little guys on them.\n<<n>>\nThen, the little guys come off the gear,\nand you get... CORN!\n<<n>>\nPretty cool, right?\n[[Yes|BanterPlayful4-1]]\n[[No|BanterPlayful4-2]]",
+		"position": {
+			"x": -5865,
+			"y": 9968
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful4-1",
+		"tags": "",
+		"body": "Yeah!! And then once you have enough corn,\nyou can make a sacrifice to the gods!\n<<n>>\nThat's how you get all the points.\n{{i}}",
+		"position": {
+			"x": -5865,
+			"y": 10195
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterPlayful4-2",
+		"tags": "",
+		"body": "No? Maybe you're more into roll and move games.\nLike Monopoly.\n<<n>>\nI used to play Monopoly, until Greg ate all of the money.\n{{i}}",
+		"position": {
+			"x": -5762,
+			"y": 10198
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterForgetful1",
+		"tags": "",
+		"body": "Oh hi! Have we met before?\nI don't remember..\n[[Yes|BanterForgetful1-1]]\n[[No|BanterForgetful1-2]]",
+		"position": {
+			"x": -5556,
+			"y": 8568
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterForgetful1-1",
+		"tags": "",
+		"body": "We have? That can't be right..\n<<n>>\nI've never met a human before.\nOr have I?\n<<n>>\nYou humans are pretty forgettable,\nso maybe you're right.\n{{i}}",
+		"position": {
+			"x": -5556,
+			"y": 8805
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterForgetful1-2",
+		"tags": "",
+		"body": "Hm.. No I'm pretty sure we've met.\nYou just don't remember me is all.\n<<n>>\nYou humans are pretty forgetful sometimes.\n{{i}}",
+		"position": {
+			"x": -5508,
+			"y": 8807
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterCheerful1",
+		"tags": "",
+		"body": "Hey hello!\n<<n>>\nHi there!\n<<n>>\nWhat a nice closet, and room!\n<<n>>\nThis is so cool, I'm totally in your bedroom right now.\n{{i}}",
+		"position": {
+			"x": -5264,
+			"y": 8569
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterCheerful2",
+		"tags": "",
+		"body": "Hum dee dee\nHum dee doo\n<<n>>\nI love to hum and sing!\nOh.. I'm not keeping you awake am I?\n[[Yes|BanterCheerful2-1]]\n[[No|BanterCheerful2-2]]",
+		"position": {
+			"x": -5276,
+			"y": 8810
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterCheerful2-1",
+		"tags": "",
+		"body": "Oh.. \n<<n>>\nThat's great! Night time is the worst time to sleep!\nWill you hum with me?\n[[Yes|BanterCheerful2-3]]\n[[No|BanterCheerful2-3]]",
+		"position": {
+			"x": -5284,
+			"y": 9036
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterCheerful2-2",
+		"tags": "",
+		"body": "Oh good.\nWhy would someone want to sleep at night anyways?\n<<n>>\nWill you hum sing with me?\n[[Yes|BanterCheerful2-3]]\n[[No|BanterCheerful2-3]]",
+		"position": {
+			"x": -5157,
+			"y": 9044
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterCheerful2-3",
+		"tags": "",
+		"body": "*The monster is ignoring you.*\n<<n>>\nHum dee hee..\nHum dee ho.. \n{{i}}",
+		"position": {
+			"x": -5285,
+			"y": 9270
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterGoofy1",
+		"tags": "",
+		"body": "Hey, what has one head, one foot and four legs?\n<<n>>\nA bed! \nAlso Merle.. I really can't tell you what his other 3 legs are for.\n{{i}}",
+		"position": {
+			"x": -4987,
+			"y": 8574
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterGoofy2",
+		"tags": "",
+		"body": "Hey, what did the janitor say when he jumped out of the closet?\n<<n>>\n... SUPPLIES!\n<<n>>\nI wonder what I would say if I jumped out of YOUR closet?\n{{i}}",
+		"position": {
+			"x": -4978,
+			"y": 8788
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterStupid1",
+		"tags": "",
+		"body": "Do you ever wonder why all these closets are so small?\n[[Yes|BanterStupid1-1]]\n[[No|BanterStupid1-2]]",
+		"position": {
+			"x": -4715,
+			"y": 8575
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterStupid1-1",
+		"tags": "",
+		"body": "You're a big dummy, then.\n<<n>>\nObviously they are so small so that\nthe humans don't try to sleep in here.\n<<n>>\nYou're not going to sleep in here are you?\n[[Yes|BanterStupid1-3]]\n[[No|BanterStupid1-4]]",
+		"position": {
+			"x": -4730,
+			"y": 8785
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterStupid1-2",
+		"tags": "",
+		"body": "Oh. You must be smart like me, then.\n<<n>>\nHey Mr. Smart pants,\nWhy are you sleeping on a bed?\n<<n>>\nDon't answer that..\nI already know why.\n<<n>>\nIt's because Borf is already sleeping underneath it.\n{{i}}",
+		"position": {
+			"x": -4549,
+			"y": 8786
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterStupid1-3",
+		"tags": "",
+		"body": "What a dummy thing to do.\n<<n>>\nOnly a real dummy would want to stay in a closet all night.\n{{i}}",
+		"position": {
+			"x": -4719,
+			"y": 9033
+		},
+		"colorID": 0
+	},
+	{
+		"title": "BanterStupid1-4",
+		"tags": "",
+		"body": "I know you really meant yes.\n<<n>>\nLook at you, eyeing up this cloest like you owned it.\n<<n>>\nWell, I'm already sleeping here,\nso you'll have to find somewhere else!\n{{i}}",
+		"position": {
+			"x": -4545,
+			"y": 9036
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node52",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -5134,
+			"y": 9812
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node53",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -5034,
+			"y": 10123
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node54",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -5034,
+			"y": 10123
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node55",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -5034,
+			"y": 10123
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node56",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -4883,
+			"y": 9724
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node57",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -4883,
+			"y": 9724
+		},
+		"colorID": 0
+	},
+	{
+		"title": "NightTimeTransition",
+		"tags": "",
+		"body": "{{fade-to-black}}\n{{close-equip-menu}}\n{{night}}\n{{select-random-monster}}\n{{add-monster-to-scene}}\n{{goto:NightTime}}",
+		"position": {
+			"x": -7238,
+			"y": 10247
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Equip",
+		"tags": "",
+		"body": "{{show-equip-menu}}\nReady for bed?\n[[Night Night|NightTimeTransition]]",
+		"position": {
+			"x": -7542,
+			"y": 10239
 		},
 		"colorID": 1
 	},
 	{
-		"title": "StoryInterlude1",
+		"title": "StoryTime",
 		"tags": "",
-		"body": "Have you heard the one about ((name))?\n<<n>>\n((name)) has ((armType)) arms and ((eyeColor)) eyes.\n<<n>>\nOne day, ((name)) was playing in the woods.\n((name)) had a fun time jumping in the leaves.\n<<n>>\nThe leaves, however, did not like being jumped in,\nand they formed into a pile over a big hole.\n<<n>>\n((name)), not seeing the hole, jumped right into that big pile of leaves.\n<<n>>\nAnd he fell and fell and fell.. never to be seen again.",
+		"body": "{{select-monster}}\n{{fade-in}}\n{{insert:interlude}}\n{{goto:Equip}}",
 		"position": {
-			"x": 352,
-			"y": 156
+			"x": -7661,
+			"y": 10026
+		},
+		"colorID": 1
+	},
+	{
+		"title": "BanterStupid2",
+		"tags": "",
+		"body": "*The monster is talking to itself..*\n<<n>>\nSo.. if one sock goes on one foot,\nand humans have two feet..\n<<n>>\nBut sometimes only one sock..\n<<n>>\nThen humans would have to put one sock on two feet!",
+		"position": {
+			"x": -4711,
+			"y": 9284
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Story1",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -7024,
+			"y": 9009
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Story2",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -6808,
+			"y": 9007
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node65",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -5331,
+			"y": 10060
+		},
+		"colorID": 0
+	},
+	{
+		"title": "PreStory",
+		"tags": "",
+		"body": "{{changebg:story}}\nDo you want me to read The Book of Monsters?\n[[Yes, please!|Story]]\n[[Not tonight, I'm too sleepy (skip intro)|1st Night]]",
+		"position": {
+			"x": -7290,
+			"y": 8482
+		},
+		"colorID": 0
+	},
+	{
+		"title": "1st Night",
+		"tags": "",
+		"body": "{{night}}\n{{select-random-monster}}\n{{add-monster-to-scene}}\n*A monster visits in the night..*\n<<n>>\nHello.. are you sleeping?\n[[No|1st Night-1]]\n[[...|1st Night-2]]",
+		"position": {
+			"x": -7526,
+			"y": 8775
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node68",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -4611,
+			"y": 10380
+		},
+		"colorID": 0
+	},
+	{
+		"title": "NightTime",
+		"tags": "",
+		"body": "\n{{does-monster-eat}}\n{{banter}}\n{{prompt}}\n{{goto:StoryTimeTransition}}",
+		"position": {
+			"x": -7186,
+			"y": 10180
+		},
+		"colorID": 2
+	},
+	{
+		"title": "1st Night-1",
+		"tags": "",
+		"body": "Me neither. Monsters don't usually sleep at night.\n<<n>>\nIt looks like your closet leads right into the land of monsters.\nDid you know that?\n[[Yes|1st Night-1-2]]\n[[No|1st Night-1-1]]",
+		"position": {
+			"x": -7701,
+			"y": 9071
+		},
+		"colorID": 0
+	},
+	{
+		"title": "1st Night-2",
+		"tags": "",
+		"body": "Are you sure you're sleeping??\nI was going to tell you about monsters.\n[[I'm not sleeping.|1st Night-1]]\n[[... (skip tutorial)|1st Night-2-2]]",
+		"position": {
+			"x": -7450,
+			"y": 9066
 		},
 		"colorID": 6
+	},
+	{
+		"title": "1st Night-1-1",
+		"tags": "",
+		"body": "Oh! That means I'm the first monster you've ever met!\n<<n>>\nLucky you, I'm what they call a \"friendly\" monster.\n<<n>>\nDon't worry. I won't eat you.\n.. Unless I do.\n<<n>>\nBut I probably won't,\nif you can find my weakness.\n<<n>>\nMaybe if you can find out my name,\nthen we'll be friends?\n<<n>>\nI don't want to eat my friends.\n<<n>>\nOr, if i'm particularly hungry, maybe if you bring me my favorite snack, I won't eat you.\n<<n>>\nI suppose some of these other monsters might not eat you either, if you find out their secrets.\n<<n>>\nThe only way to do that, I suppose, is to ask their friends about them.\n<<n>>\nJust remember, little one:\nEvery monster is different..\n<<n>>\nAnd different kinds of \"nice\", too.\n<<n>>\n{{GoTo:StoryTimeTransition}}",
+		"position": {
+			"x": -7785,
+			"y": 9327
+		},
+		"colorID": 0
+	},
+	{
+		"title": "StoryTimeTransition",
+		"tags": "",
+		"body": "{{fade-to-black}}\n{{increment-night-counter}}\n{{show-current-night}}\n{{wait-for-input}}\n{{goto:StoryTime}}",
+		"position": {
+			"x": -7743,
+			"y": 9984
+		},
+		"colorID": 0
+	},
+	{
+		"title": "1st Night-2-1",
+		"tags": "",
+		"body": "Thought so..\n<<n>>\nHere's your crash course in Monster-ology.\n<<n>>\nMonsters are usually really hungry.\nSometimes they just get bored.\n<<n>>\nIf a monster is hungry enough, or bored enough, then..\n<<n>>\nThey'll probably eat you!\n<<n>>\nBut, monsters never eat their friends,\nif they are friendly.\n<<n>>\nAnd sometimes a good old human snack will do,\nif they are hungry enough..\n<<n>>\nWhoever the monster, you'll need to find their weakness,\nand to do that, you'll probably need to ask questions.\n<<n>>\nI'm sure you'll meet lots of new monsters soon,\nand you can ask them all sorts of questions!\n<<n>>\nAnyways, I'll let you sleep..\nMaybe if you see me again we can be friends!\n{{goto:StoryTimeTransition}}",
+		"position": {
+			"x": -7265,
+			"y": 9586
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node76",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -4985,
+			"y": 10450
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node77",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -4731,
+			"y": 10040
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Node78",
+		"tags": "",
+		"body": "Empty Text",
+		"position": {
+			"x": -4731,
+			"y": 10040
+		},
+		"colorID": 0
+	},
+	{
+		"title": "1st Night-1-2",
+		"tags": "",
+		"body": "Really? Well then you should know all about us monsters.\n<<n>>\nI guess I don't need to tell YOU how to not be eaten. Right?\n[[Right (skip tutorial)|1st Night-1-2-1]]\n[[Remind me!|1st Night-2-1]]",
+		"position": {
+			"x": -7519,
+			"y": 9327
+		},
+		"colorID": 0
+	},
+	{
+		"title": "1st Night-2-2",
+		"tags": "",
+		"body": "Hmm..\n<<n>>\nWell, nighty night, little one.\n<<n>>\n{{goto:StoryTimeTransition}}",
+		"position": {
+			"x": -7264,
+			"y": 9326
+		},
+		"colorID": 0
+	},
+	{
+		"title": "1st Night-1-2-1",
+		"tags": "",
+		"body": "You're such a brave little human.\n<<n>>\nYou'll do just fine.\n<<n>>\nNext time I see you, maybe we can be friends?\nEither way.. nighty night little one.\n<<n>>\n{{goto:StoryTimeTransition}}",
+		"position": {
+			"x": -7497,
+			"y": 9584
+		},
+		"colorID": 0
 	}
 ]

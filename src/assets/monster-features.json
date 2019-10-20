@@ -13,7 +13,7 @@
         "chubby",
         "tentacle",
         "lanky",
-        "none"
+        "no"
     ],
     "mouthType": [
         "biglips",
@@ -69,6 +69,8 @@
         "menacing",
         "curious",
         "crazy",
-        "motherly"
+        "motherly",
+        "cheerful",
+        "forgetful"
     ]
 }

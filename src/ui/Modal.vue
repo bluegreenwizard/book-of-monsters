@@ -1,61 +1,53 @@
 <template>
-    <div class="modal" @click="advance">
-        <template v-if="parts.length > 0">
-            <p>{{ parts[current].text.substring(0, shownChars) }}</p>
-            <ul v-if="parts[current].options.length > 0">
-                <li v-for="(option, i) in parts[current].options" 
-                    :key="i">
-                    <a @click="goToNode(option.destination)">
-                        {{ option.text }}
-                    </a>
-                </li>
-            </ul>
-        </template>
-        <template v-else>
-            ...
-        </template>
+    <div id="modal-grid">
+        <div class="modal" @click="advance">
+            <template v-if="text.length > 0">
+                <p>{{ text.substring(0, shownChars) }}</p>
+                <ul v-if="options.length > 0 && text.length <= shownChars">
+                    <li v-for="(option, i) in options" 
+                        :key="i">
+                        <a @click="goToNode(option.destination)">
+                            {{ option.text }}
+                        </a>
+                    </li>
+                </ul>
+            </template>
+            <template v-else>
+                ...
+            </template>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['content'],
+    props: [
+        'text',
+        'options'
+    ],
     data() {
         return {
-            parts: [],
-            current: 0,
             shownChars: 0,
             locked: false
         }
     },
     methods: {
         advance() {
-            if(this.parts[this.current].text.length > this.shownChars) {
-                this.shownChars = this.parts[this.current].text.length;
+            if(this.text.length > this.shownChars) {
+                this.shownChars = this.text.length;
             } else {
                 this.goToNextPart();
+                this.shownChars = 0;
             }
         },
         goToNextPart() {
-            this.current = Math.min(this.current + 1, this.parts.length - 1);
-            if (!this.locked) {
-                this.shownChars = 0;
-            }
-            
-            if (this.current === this.parts.length - 1) {
-                this.locked = true;
-            }
+            this.$emit('goToNextPart');
         },
         goToNode(title) {
             this.$emit('goToNode', title);
         }
     },
     created() {
-        //async load modal content
-        this.content.then(parts => {
-            this.parts = parts;
-        });
-
         //set timer for revealing letters
         setInterval(() => {
             this.shownChars += 1;
