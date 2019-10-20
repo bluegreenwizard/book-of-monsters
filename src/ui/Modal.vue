@@ -6,9 +6,7 @@
                 <ul v-if="options.length > 0 && text.length <= shownChars">
                     <li v-for="(option, i) in options" 
                         :key="i">
-                        <a @click="goToNode(option.destination)">
-                            {{ option.text }}
-                        </a>
+                        <a @click="goToNode(option.destination)">{{ option.text }}</a>
                     </li>
                 </ul>
             </template>

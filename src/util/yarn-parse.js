@@ -34,6 +34,8 @@ function parseBody(body) {
     //Text is everything except stuff in option brackets
     let text = body.replace(/\[\[.+\]\]/g, '');
     text = text.replace(/\{\{.+\}\}/g, '');
+    //Remove white space from start and end of text.
+    text = text.replace(/^[\s\\n]+|[\s\\n]+$/g, '');
     //Get each option between [[ ]] in node body.
     const optionStrings = body.match(/\[\[.+\]\]/g) || [];
     //Get each command between {{ }} in node body.
