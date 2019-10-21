@@ -1,5 +1,5 @@
 export default {
-    title: 'Game Title',
+    title: 'The Book of Monsters',
     buttons: {
         confirm: [
             'SPACE',

@@ -19,8 +19,7 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
-game.scene.add('TitleScreen', TitleScreen, true);
-game.scene.add('GamePlay', GamePlay);
+game.scene.add('GamePlay', GamePlay, true);
 // game.events.once(Phaser.Scenes.Events.CREATE, scene => {
 //     scene.cursors = scene.input.keyboard.createCursorKeys();
 // });

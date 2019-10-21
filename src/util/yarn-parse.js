@@ -45,10 +45,17 @@ function parseBody(body) {
     commands = commands.map(cmd => { 
         //TODO: Refactor this puppy right here
         let arg = '';
-        const command = cmd.match(/\{\{(.+):.*\}\}/)[1];
+        let command = '';
+        const commandMatch = cmd.match(/\{\{(.+):.*\}\}/);
+        
+        if (commandMatch) {
+            command = commandMatch[1];
+        }
+
         if (arg = cmd.match(/:(.+)\}\}/)) {
             arg = arg[1];
         }
+
         return {
             command,
             arg

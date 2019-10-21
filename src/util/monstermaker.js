@@ -39,8 +39,9 @@ async function generateMonster(level, similarity) {
         favoriteToy: sample(features.favoriteToy),
         personality: sample(features.personality),
         hates: null,
+        stage: 1,
         //Give monster 1-3 weaknesses based on level.
-        weaknesses: shuffle(features.weakness).slice(0, Math.abs(level - 4))
+        weaknesses: shuffle(features.weakness).slice(0, Math.abs(level - 4)),
     }
 
     //Monster hates something different from it's favorite toy or snack

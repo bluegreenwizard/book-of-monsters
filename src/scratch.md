@@ -53,3 +53,12 @@ The Afraid
 - Defeated if flashlight is turned back off at 3rd stage
 - Eats you if flashlight is left on for a few seconds
 - Defeated if flashlight is not turned off after 3 visits
+
+
+FOR LATER
+"snaky",
+"hangy",
+"blob",
+"crab",
+"square",
+"cloak"

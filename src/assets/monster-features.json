@@ -27,14 +27,7 @@
         "mad"
     ],
     "bodyType": [
-        "round",
-        "snaky",
-        "head",
-        "blob",
-        "crab",
-        "square",
-        "alien",
-        "cloak"
+        "round"
     ],
     "favoriteSnack": [
         "pancakes",
