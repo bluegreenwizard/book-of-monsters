@@ -14,7 +14,6 @@
 
 <script>
 import game from '../game';
-import { sample, random as randInt } from 'lodash';
 import yarn from '../util/yarn-parse';
 import yarnCommands from '../util/yarn-commands';
 
@@ -70,9 +69,13 @@ export default {
             });
         },
         nodeStep() {
+            const debug = true;
             //Process current step based on type
             //Return a promise which resolves when the step is completed.
             const cur = this.node[this.step];
+            if (debug) {
+                console.log(cur.type, ': ', cur.content);
+            }
             switch (cur.type) {
                 case 'command':
                     return this.runCommand(cur.content)
@@ -117,7 +120,7 @@ export default {
     created() {
         game.events.on('scene-create', () => {
             this.scene = game.scene.getScene('GamePlay');
-            this.goToNode('TestNode');
+            this.goToNode('TitleScreen');
         });
     },
     mounted() {

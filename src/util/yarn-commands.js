@@ -1,6 +1,8 @@
 import generateMonster from '../util/monstermaker';
+import { sample, random as randInt } from 'lodash';
 
 export default {
+    //Environment
     changeBg(bgKey) {
         if (this.bg) {
             this.bg.destroy();
@@ -9,25 +11,28 @@ export default {
         this.bg.depth = 2;
         this.bg.setOrigin(0, 0);
     },
-    testCommand() {
-        console.log('tested successted!');
-    },
+
+    //Monsters
     createNewMonster(level) {
         generateMonster(level).then(monster => {
             this.monsters.push(monster);
         });
     },
+
     selectRandomMonster() {
-        this.selectedMonster = randInt(0, this.monsters.length);
+        this.selectedMonster = randInt(0, this.monsters.length - 1);
     },
+
     selectMonster(index) {
         this.selectedMonster = index;
     },
+
     addNewMonster(level) {
         generateMonster(level).then((monster) => {
             this.monsters.push(monster);
         });
     },
+
     addMonsterToScene() {
         let monster = this.monsters[this.selectedMonster];
         if (monster.stage === 1) {
@@ -42,12 +47,13 @@ export default {
         }
         this.monsterSprite.setOrigin(0, 1);
     },
+
+    //GamePlay
     incrementNightCounter() {
         this.night += 1;
     },
-    showCurrentNight() {
 
-    },
+    //Pacing
     waitFor(event) {
         return new Promise((resolve) => {
             this.$on(event, () => {
@@ -55,17 +61,43 @@ export default {
             });
         });
     },
-    fadeTo(color, ms = 2000) {
-        
+    
+    wait(seconds = 1) {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve(), seconds * 1000);
+        });
     },
-    fadeIn() {
-        
+
+    fadeTo(colorName, ms = 2500) {
+        const colors = {
+            black: 0x000000,
+            white: 0xFFFFFF
+        }
+        const hexColor = colors[colorName];
+        this.scene.fade.fillStyle(hexColor);
+
+        return new Promise((resolve) => {
+            this.scene.fade.fadeOut(resolve, ms);
+        });
     },
+
+    fadeIn(ms = 1500) {
+        return new Promise((resolve) => {
+            this.scene.fade.fadeIn(resolve, ms);
+        });
+    },
+
+    //Utility
     setTextVariables() {
         let part = this.currentPart();
         part.text = part.text.replace(/\(\(.+?\)\)/g, (str) => {
             const feature = str.match(/\(\((.+?)\)\)/)[1];
             return this.monsters[selectedMonster][feature];
         });
-    }
+    },
+
+    //Display
+    showCurrentNight() {
+
+    },
 }

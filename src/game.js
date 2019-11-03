@@ -1,5 +1,4 @@
-import GamePlay from './scenes/GamePlay'
-import TitleScreen from './scenes/TitleScreen';
+import GamePlay from './scenes/GamePlay';
 
 const config = {
     type: Phaser.AUTO,
