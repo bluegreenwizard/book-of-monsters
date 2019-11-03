@@ -1,9 +1,9 @@
 <template>
     <div id="modal-grid">
         <div class="modal" @click="advance">
-            <template v-if="text.length > 0">
-                <p>{{ text.substring(0, shownChars) }}</p>
-                <ul v-if="options.length > 0 && text.length <= shownChars">
+            <template v-if="lines.length > 0">
+                <p>{{ dialogue.substring(0, shownChars) }}</p>
+                <ul v-if="options.length > 0 && dialogue.length <= shownChars">
                     <li v-for="(option, i) in options" 
                         :key="i">
                         <a @click="goToNode(option.destination)">{{ option.text }}</a>
@@ -20,7 +20,7 @@
 <script>
 export default {
     props: [
-        'text',
+        'lines',
         'options'
     ],
     data() {
@@ -31,18 +31,20 @@ export default {
     },
     methods: {
         advance() {
-            if(this.text.length > this.shownChars) {
-                this.shownChars = this.text.length;
-            } else {
-                this.goToNextPart();
+            if(this.dialogue.length > this.shownChars) {
+                this.shownChars = this.dialogue.length;
+            } else if (this.options.length === 0) {
                 this.shownChars = 0;
+                this.$emit('advanceDialogue');
             }
         },
-        goToNextPart() {
-            this.$emit('goToNextPart');
-        },
-        goToNode(title) {
-            this.$emit('goToNode', title);
+        goToNode(destination) {
+            this.$emit('goToNode', destination);
+        }
+    },
+    computed: {
+        dialogue() {
+            return this.lines.join('\n');
         }
     },
     created() {

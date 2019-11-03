@@ -13,76 +13,42 @@ async function getNode(title) {
     });
 }
 
-//Split node text on <<n>> and remove starting and ending whitespace
-function getBodyParts(node) {
-    const parts = node.body.split('<<n>>');
-    return parts.map(part => {
-        const partObject = parseBody(part);
-        
-        return partObject;
+function getParsedLines(lines) {
+    return lines.map(line => {
+        if (/^<</.test(line)) {
+            //Command
+            return {
+                type: 'command',
+                content: line.match(/^<<(.+)>>/)[1]
+            }
+        } else if (/---/.test(line)) {
+            //Break
+            return {
+                type: 'command',
+                content: 'waitFor advanceDialogue'
+            }
+        } else if (/^\[\[/.test(line)) {
+            //Goto
+            return {
+                type: 'link',
+                content: line.match(/^\[\[(.+)\]\]/)[1]
+            }
+        } else {
+            //Dialogue
+            return {
+                type: 'dialogue',
+                content: line 
+            }
+        }
     });
 }
 
-//Parse node body into object.
-//Object has dialogue text,
-//triggered commands,
-//and dialogue options.
-function parseBody(body) {
-    //Remove whitespace from start and end of body.
-    body = body.replace(/^[\s\\n]+|[\s\\n]+$/g, '');
-
-    //Text is everything except stuff in option brackets
-    let text = body.replace(/\[\[.+\]\]/g, '');
-    text = text.replace(/\{\{.+\}\}/g, '');
-    //Remove white space from start and end of text.
-    text = text.replace(/^[\s\\n]+|[\s\\n]+$/g, '');
-    //Get each option between [[ ]] in node body.
-    const optionStrings = body.match(/\[\[.+\]\]/g) || [];
-    //Get each command between {{ }} in node body.
-    let commands = body.match(/\{\{.+\}\}/g) || [];
-
-    //Get command (left side of :), and argument (right side of :) from each command.
-    commands = commands.map(cmd => { 
-        //TODO: Refactor this puppy right here
-        let arg = '';
-        let command = '';
-        const commandMatch = cmd.match(/\{\{(.+):.*\}\}/);
-        
-        if (commandMatch) {
-            command = commandMatch[1];
-        }
-
-        if (arg = cmd.match(/:(.+)\}\}/)) {
-            arg = arg[1];
-        }
-
-        return {
-            command,
-            arg
-        }
-    });
-
-    //Parse each option into text and destination.
-    const options = optionStrings.map(opt => {
-        const splitOption = opt.match(/\[\[(.+)\|(.+)\]\]/);
-        //Remove whitespace from start and end of answers.
-        const text = splitOption[1].replace(/^[\s\\n]+|[\s\\n]+$/g, '');
-        //TODO: Above doesn't fix issue.
-
-        return {
-            text: text,
-            destination: splitOption[2]
-        }
-    });
-
-    return {
-        text, //String of text content
-        commands, //List of commands
-        options //List of option objects: { text, destination }
-    }
+//Public
+async function parseNode(title) {
+    const node = await getNode(title);
+    return getParsedLines(node.body.split('\n'));
 }
 
 export default {
-    getBodyParts,
-    getNode
-};
+    parseNode
+}

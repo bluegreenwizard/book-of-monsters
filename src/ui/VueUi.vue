@@ -2,11 +2,11 @@
     <div id="menu" @click="inputEvent">
         <div class="container">
             <modal 
-                v-if="dialogue"
-                :text="dialogue.text"
-                :options="dialogue.options"
-                @goToNode="(title) => goToNode(title)"
-                @goToNextPart="goToNextPart">
+                v-if="dialogueLines.length > 0"
+                :lines="dialogueLines"
+                :options="dialogueOptions"
+                @advanceDialogue="advanceDialogue"
+                @goToNode="goToNode">
             </modal>
         </div>
     </div>
@@ -14,9 +14,9 @@
 
 <script>
 import game from '../game';
-import generateMonster from '../util/monstermaker';
 import { sample, random as randInt } from 'lodash';
 import yarn from '../util/yarn-parse';
+import yarnCommands from '../util/yarn-commands';
 
 import Modal from './Modal';
 
@@ -31,140 +31,98 @@ export default {
             bg: null,
             monsters: [],
             monsterSprite: null,
-            dialogue: null,
+            dialogueLines: [],
+            dialogueOptions: [],
             selectedMonster: 0,
             night: 1,
             node: null,
-            parts: [],
-            part: 0
+            step: 0
         }
     },
     methods: {
-        getRandomMonsterIndex() {
-            return randInt(0, this.monsters.length);
-        },
-        selectMonster(index) {
-            this.selectedMonster = index;
-        },
-        addNewMonster(level) {
-            generateMonster(level).then((monster) => {
-                this.monsters.push(monster);
-            });
-        },
         inputEvent() {
-            this.$emit('inputEvent');
+            this.$emit('click');
         },
-
+        advanceDialogue() {
+            this.dialogueLines = [];
+            this.$emit('advanceDialogue');
+        },
         //Main Engine
-        
-        goToNode(title, part = 0) {
-            //Clear current node, reset part number.
+        getNode(title, step = 0) {
+            return yarn.parseNode(title);
+        },
+        goToNode(title, step = 0) {
+            //Clear current node.
             this.node = null;
-            this.part = part;
-            
-            yarn.getNode(title)
+            this.dialogue = null;
+            this.dialogueOptions = [];
+            yarn.parseNode(title)
             .then(node => {
                 this.node = node;
-                this.parts = yarn.getBodyParts(node);
-                this.runCommands();
+                this.step = step;
+                this.$emit('nodeReady');
             });
         },
-        goToNextPart() {
-            this.goToNode(this.node.title, this.part + 1);
-        },
-        currentPart() {
-            return this.parts[this.part];
-        },
-        //Triggers when node is loaded, and on each step
-        runCommands(current = 0) {
-            const part = this.currentPart();
-            let done = null;
-
-            const { command, arg } = part.commands[current];
-            done = new Promise((resolve, reject) => {
-                resolve(this[command](arg));
-            });
-
-            done.then(() => {
-                if (current + 1 < part.commands.length) {
-                    this.runCommands(current + 1);
-                } else {
-                    this.dialogue = part;
-                }
-            }).catch((error) => {
-                console.log(error);
-                throw `Invalid command (${command}) used in yarn node. Node: ${ this.node.title }, Part #: ${this.part + 1}`;
-            });
-        },
-        advance(){
-            this.part += 1;
-            this.activateNode();
-        },
-
-        //Yarn Commands
-        changebg(bgKey) {
-            if (this.bg) {
-                this.bg.destroy();
-            }
-            this.bg = this.scene.add.image(0, 0, bgKey);
-            this.bg.depth = 2;
-            this.bg.setOrigin(0, 0);
-        },
-        createNewMonster(level) {
-            generateMonster(level).then(monster => {
-                this.monsters.push(monster);
-            });
-        },
-        selectRandomMonster() {
-            this.selectedMonster = randInt(0, this.monsters.length);
-        },
-        addMonsterToScene() {
-            let monster = this.monsters[this.selectedMonster];
-            if (monster.stage === 1) {
-                this.monsterSprite = this.scene.add.image(80, 70, monster.bodyType + 'body');
-                this.monsterSprite.depth = 1;
-            } else if (monster.stage == 2) {
-                this.monsterSprite = this.scene.add.image(69, 80, monster.bodyType + 'body');
-                this.monsterSprite.depth = 3;
-            } else { //monster stage 3
-                this.monsterSprite = this.scene.add.image(69, 80, monster.bodyType + 'head');
-                this.monsterSprite.depth = 3;
-            }
-            this.monsterSprite.setOrigin(0, 1);
-        },
-        incrementNightCounter() {
-            this.night += 1;
-        },
-        showCurrentNight() {
-
-        },
-        waitForInput() {
+        runCommand(commandString) {
+            const [ command, ...args ] = commandString.split(' ');
             return new Promise((resolve) => {
-                this.$on('inputEvent', () => {
-                    resolve();
+                resolve(yarnCommands[command].bind(this)(...args));
+            });
+        },
+        nodeStep() {
+            //Process current step based on type
+            //Return a promise which resolves when the step is completed.
+            const cur = this.node[this.step];
+            switch (cur.type) {
+                case 'command':
+                    return this.runCommand(cur.content)
+                    .catch(e => {
+                        console.log(`Error on command: ${cur.content}`);
+                        throw e;
+                    });
+                case 'link':
+                    //If link is an option
+                    if (cur.content.match(/\|/)) {
+                        const [ text, destination ] = cur.content.split('|');
+                        this.dialogueOptions.push({
+                            text,
+                            destination
+                        });
+                    } else {
+                    //Link is a goto
+                        return new Promise((resolve) => {
+                            this.getNode(cur.content)
+                            .then(newNode => {
+                                this.node.splice(this.step + 1, 0, ...newNode);
+                                resolve();
+                            });
+                        });
+                    }
+                    return new Promise((resolve) => resolve());
+                case 'dialogue':
+                    this.dialogueLines.push(cur.content);
+                default:
+                    return new Promise((resolve) => resolve());
+            }                            
+        },
+        processNode() {
+            if (this.step < this.node.length) {
+                this.nodeStep().then(res => {
+                    this.step += 1;
+                    this.processNode();
                 });
-            });
-        },
-        fadeToBlack(ms = 2000) {
-            setTimeout(() => {
-                
-            }, 2000);
-        },
-        fadeIn() {
-        
-        },
-        setTextVariables() {
-            let part = this.currentPart();
-            part.text = part.text.replace(/\(\(.+?\)\)/g, (str) => {
-                const feature = str.match(/\(\((.+?)\)\)/)[1];
-                return this.monsters[selectedMonster][feature];
-            });
+            }
         }
     },
     created() {
         game.events.on('scene-create', () => {
             this.scene = game.scene.getScene('GamePlay');
-            this.goToNode('TitleScreen');
+            this.goToNode('TestNode');
+        });
+    },
+    mounted() {
+        this.$on('nodeReady', () => {
+            this.processNode();
         });
     }
 }

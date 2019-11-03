@@ -1,11 +1,8 @@
 import './styles.sass';
-import Phaser from 'phaser';
 import Vue from 'vue';
-import VueUi from './ui/VueUi';
 import game from './game';
+import VueUi from './ui/VueUi';
 import './util/monstermaker';
-
-import './util/yarn-parse';
 
 const app = new Vue({
     el: '#ui',
